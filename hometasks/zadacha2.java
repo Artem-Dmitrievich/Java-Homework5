@@ -21,17 +21,15 @@ public class zadacha2 {
     
             try (BufferedReader br = new BufferedReader(new FileReader("hometasks/Список сотрудников.txt"))) {
                 BufferedWriter fw = new BufferedWriter(new FileWriter("hometasks/Сортировка.txt"));
-                // StringBuilder sb = new StringBuilder();
                 List<String> lineName = new ArrayList();
                 String line;
                 while ((line = br.readLine()) != null) {
-                    // sb.append(line + "\n");
                     lineName.add(line);
                 }
-                fw.write("всего людей - ");
+                fw.write("Всего сотрудников - ");
                 fw.write(lineName.size() + "\n");
                 Set<String> uniqueName = new HashSet<String>(lineName);
-                fw.write("всего имен - ");
+                fw.write("Всего имен - ");
                 fw.write(uniqueName.size() + "\n\n");
     
                 List<String> numEqualName = new ArrayList<>();
@@ -42,20 +40,17 @@ public class zadacha2 {
                             count++;
                         }
                     }
-                    // String a = String.valueOf(count);
-                    // String qqq = ar.toString();
                     numEqualName.add(count + " - " + temp + "\n");
                     numEqualName.sort(null);
                     Collections.reverse(numEqualName);
                 }
-                // System.out.println(numEqualName);
                 for (String name : numEqualName) {
                     fw.write(name);
                 }
                 fw.close();
     
             } catch (Exception e) {
-                System.out.println("ошибка!!");
+                System.out.println("Вы ошиблись, введите заного");
             }
     
         }
